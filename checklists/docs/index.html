@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pokémon TCG Collection Builder</title>
+<meta name="description" content="Build a themed Pokémon TCG checklist — every printing of an evolution family, an artist, or a set — as a printable ledger, 9-pocket binder grid, and TCGplayer mass-entry list. Runs entirely in your browser." />
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="ledger">
+<div id="app">
+  <aside id="panel">
+    <header>
+      <h1>Collection Builder</h1>
+      <p class="sub">Every English printing of a family, artist, or set &mdash; as a printable <em>ledger</em>.</p>
+    </header>
+
+    <form id="gen">
+      <section class="ctl">
+        <label class="lbl" for="type">Collection type</label>
+        <select id="type">
+          <option value="pokemon">Pokémon / evolution line</option>
+          <option value="artist">Artist</option>
+          <option value="set">Whole set</option>
+        </select>
+      </section>
+      <section class="ctl">
+        <label class="lbl" for="target">Target</label>
+        <input type="text" id="target" autocomplete="off" placeholder="e.g. Sandygast,Palossand" />
+        <p class="hint" id="hint">Comma-separate names to combine an evolution family.</p>
+      </section>
+      <button class="btn primary wide" type="submit">Generate</button>
+      <p class="status" id="status"></p>
+      <div class="examples">
+        <span class="exlbl">try</span>
+        <button type="button" class="ex chip" data-type="pokemon" data-target="Sandygast,Palossand">Sandygast line</button>
+        <button type="button" class="ex chip" data-type="artist" data-target="Mitsuhiro Arita">Arita</button>
+        <button type="button" class="ex chip" data-type="set" data-target="sv8">Surging Sparks</button>
+      </div>
+    </form>
+
+    <footer class="foot">
+      Catalog: <span id="catstat">loading…</span>. Data pokemontcg.io &middot; prices TCGplayer.
+      <a href="https://github.com/dgoodenough/style" target="_blank" rel="noopener">Ledger</a> theme.
+    </footer>
+  </aside>
+  <main id="main"><div id="view"></div></main>
+</div>
+<script src="app.js" charset="utf-8"></script>
+</body>
+</html>
