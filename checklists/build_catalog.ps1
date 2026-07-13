@@ -8,7 +8,7 @@ $root = $PSScriptRoot
 if (-not $root) { $root = "C:\Users\justd\dev\ultiworld\pokemon-tcg-checklists\checklists" }
 $duck = "C:\Users\justd\AppData\Local\Microsoft\WinGet\Packages\DuckDB.cli_Microsoft.Winget.Source_8wekyb3d8bbwe\duckdb.exe"
 $db   = "C:\Users\justd\dev\ultiworld\pokemon-tcg-pricing\pipeline.duckdb"
-$docs = Join-Path $root 'docs'
+$docs = Join-Path (Split-Path $root -Parent) 'docs'   # docs/ lives at the repo root (GitHub Pages)
 $lookupPath = Join-Path $root '_csv_lookup_raw.csv'
 New-Item -ItemType Directory -Force -Path (Join-Path $docs 'data') | Out-Null
 
